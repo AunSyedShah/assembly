@@ -1,3 +1,7 @@
+; this program will display My name UMAIR 
+; DOS screen
+; compile this using DOSBOX and NASM
+
 [org 0x0100]
        jmp start
        oldisr: dd 0           ; space for saving old isr keyboard interrupt service routine
@@ -10,10 +14,11 @@ mov es, ax                    ;point es to video memory
 in al, 0x60                   ;read a char from keyboard port
 cmp al, 0x31                  ;is to hold the key in N   
 jne nextcmp                   ;no, try next comparison
-mov byte [es:0],'A'         ;yes, print ABCD at top left 
-mov byte [es:2],'n'  
-mov byte [es:4],'a'  
-mov byte [es:6],'m'  
+mov byte [es:0],'U'         ;yes, print ABCD at top left 
+mov byte [es:2],'M'  
+mov byte [es:4],'A'  
+mov byte [es:6],'I'  
+mov byte [es:8],'R'  
 
 jmp nomatch                   ;leave interrupt routine
 
